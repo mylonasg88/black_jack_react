@@ -1,0 +1,7 @@
+{
+  "name": "black_jack",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
