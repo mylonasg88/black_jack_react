@@ -24,12 +24,28 @@ Uninstall Ionic
 $npm uninstall -g ionic
 ```
 
-## Run the project
+## Run project
+
+### Web App
 
 - `$ ionic serve`
 
+### Mobile
+
+Documentation for `capasitor run` [here](https://ionicframework.com/docs/cli/commands/capacitor-run)
+
+```ssh
+$ionic capacitor run android
+```
+
+## Publish project
+
+```ssh
+$ionic build prod
+$firebase deploy
+```
+
 ## TODO
 
-- Deal player 2 cards from the start
 - Ace must have 2 values, 1 or 11 and logic to handle that
 - Add images for cards

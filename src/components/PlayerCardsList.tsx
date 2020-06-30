@@ -2,10 +2,14 @@ import React from "react";
 import { CardType } from "../utils/utils";
 import { IonItem, IonLabel } from "@ionic/react";
 
-const PlayerCardsList: any = (props: { cards: Array<CardType> }) => {
+interface PropsType {
+  cards: Array<CardType>;
+}
+
+const PlayerCardsList: React.FC<PropsType> = (props) => {
   const { cards } = props;
-  return cards.map((card: CardType, index: number) => {
-    return (
+  const cardsList = cards.map((card: CardType, index: number) => (
+    <React.Fragment>
       <IonItem key={index}>
         <IonLabel color='primary'>
           <h2>
@@ -13,8 +17,10 @@ const PlayerCardsList: any = (props: { cards: Array<CardType> }) => {
           </h2>
         </IonLabel>
       </IonItem>
-    );
-  });
+    </React.Fragment>
+  ));
+
+  return <React.Fragment>{cardsList}</React.Fragment>;
 };
 
 export default PlayerCardsList;

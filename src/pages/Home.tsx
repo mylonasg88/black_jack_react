@@ -20,6 +20,7 @@ import { Card } from "../components/Card";
 import ResetButton from "../components/ResetButton";
 import { createDeck, shuffleDeck, CardType } from "../utils/utils";
 import PlayerCardsList from "../components/PlayerCardsList";
+import List from "./List";
 
 const Home: React.FC = () => {
   const [player, setPlayer] = useState(1);
@@ -27,7 +28,6 @@ const Home: React.FC = () => {
   const [playerPoints, setPlayerPoints] = useState(0);
   const [dealerPoints, setDealerPoints] = useState(0);
   const [deck, setDeck] = useState<CardType[]>(shuffleDeck(createDeck()));
-  // const [deck, setDeck] = useState<CardType[]>(createDeck());
   const [dealerCards, setDealerCards] = useState<CardType[] | []>([]);
 
   const drawCard = () => {
