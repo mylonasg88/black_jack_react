@@ -9,15 +9,13 @@ interface PropsType {
 const PlayerCardsList: React.FC<PropsType> = (props) => {
   const { cards } = props;
   const cardsList = cards.map((card: CardType, index: number) => (
-    <React.Fragment>
-      <IonItem key={index}>
-        <IonLabel color='primary'>
-          <h2>
-            {card.card} {card.color}
-          </h2>
-        </IonLabel>
-      </IonItem>
-    </React.Fragment>
+    <IonItem key={index}>
+      <IonLabel color='primary'>
+        <h2>
+          {card.card} {card.color}
+        </h2>
+      </IonLabel>
+    </IonItem>
   ));
 
   return <React.Fragment>{cardsList}</React.Fragment>;
