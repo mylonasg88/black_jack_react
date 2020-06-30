@@ -27,6 +27,7 @@ const Home: React.FC = () => {
   const [playerPoints, setPlayerPoints] = useState(0);
   const [dealerPoints, setDealerPoints] = useState(0);
   const [deck, setDeck] = useState<CardType[]>(shuffleDeck(createDeck()));
+  // const [deck, setDeck] = useState<CardType[]>(createDeck());
   const [dealerCards, setDealerCards] = useState<CardType[] | []>([]);
 
   const drawCard = () => {
@@ -43,7 +44,19 @@ const Home: React.FC = () => {
     }
   };
 
+  const initPlayer = () => {
+    let card = deck.pop();
+    let card2 = deck.pop();
+    if (typeof card !== "undefined" && typeof card2 !== "undefined") {
+      setPlayerCards([...playerCards, card, card2]);
+      setPlayerPoints(playerPoints + card.points + card2.points);
+    }
+  };
+
   useEffect(() => {
+    // we trigger player to change (be more than 1) when user wins (21) before Dealer plays.
+    if (player > 0) initPlayer();
+
     // Only when (dealer is playing) and (dealer hasn't finished) the game
     if (!player && dealerPoints < 22 && dealerPoints <= playerPoints)
       drawCard();
@@ -54,7 +67,8 @@ const Home: React.FC = () => {
     setPlayerCards([]);
     setDealerPoints(0);
     setDealerCards([]);
-    setPlayer(1);
+    setPlayer(player + 1);
+    setDeck(shuffleDeck(createDeck()));
   };
 
   return (

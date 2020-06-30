@@ -63,7 +63,6 @@ export const shuffleDeck = (array: Array<CardType>): Array<CardType> => {
     temporaryValue,
     randomIndex;
 
-  // shuffle the deck array
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
     // Pick a remaining element...
