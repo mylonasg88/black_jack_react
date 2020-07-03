@@ -1,0 +1,6 @@
+.app-title {
+  margin-top: 0;
+}
+.app-title.ios.title-large.hydrated {
+  margin: 0;
+}
